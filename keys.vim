@@ -1,7 +1,7 @@
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = "\<Space>"
-let g:mapleader = "\<Space>"
+let mapleader = ","
+let g:mapleader = ","
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Normal mode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -20,6 +20,8 @@ nmap sp :split<cr>
 " make it easer to execute commands
 nmap ; :
 
+map <C-B> :NERDTreeToggle<cr>
+
 " open an 80 column split in terminal mode
 func TermSplit()
   execute "vsplit"
@@ -27,6 +29,10 @@ func TermSplit()
   execute "terminal"
 endfunc
 nmap <leader>t :exec TermSplit()<cr>
+
+" Use the arrows to switch buffers
+map <right> :bn<cr>
+map <left> :bp<cr>
 
 " fzf mappings
 nmap <leader>f :Files<cr> 
@@ -87,3 +93,8 @@ tnoremap jx <C-\><C-n>:bd!<CR>
 " easily jump back to normal window
 tnoremap <Space><Space> <C-\><C-n><C-w><C-p>
 
+" grepping
+" open a fullscreen interactive grepping window
+nnoremap <leader>g :Ag!<CR>
+" open a small interactive grepping window
+nnoremap <leader>G :ag<CR>

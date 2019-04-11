@@ -28,14 +28,18 @@ set wildmenu                    "make tab completion for files/buffers act like 
 set foldmethod=manual
 set wildignore+=*/vendor/**,*/node_modules/**,*/lib/**     " I don't want to pull up these folders/files when calling CtrlP
 "" Make it obvious where 80 characters is
-set colorcolumn=80
+"set colorcolumn=80
 set textwidth=80
 " Swap files out of the project root
 set backupdir=~/.config/nvim/backup//
 set directory=~/.config/nvim/swap//
+" hop from file to file without saving
+set hidden
 highlight TermCursor ctermfg=red guifg=red
 " split settings
 set splitbelow
 set splitright
 " auto refresh files that change whilst editing
 set autoread
+
+au BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars

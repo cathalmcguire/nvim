@@ -48,7 +48,7 @@ let $FZF_DEFAULT_COMMAND = 'ag --path-to-ignore ~/.ignore -g ""'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ale
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ale_linters = { 'javascript': ['eslint', 'flow'], 'typescript': ['tslint', 'tsserver'] }
+let g:ale_linters = { 'javascript': ['eslint', 'flow'], 'typescript': ['tslint', 'tsserver'], 'ruby': ['rails_best_practises', 'rubocop', 'brakeman', 'reek', 'ruby', 'rufo'] }
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
 let g:ale_sign_error = 'X' " could use emoji
@@ -62,6 +62,7 @@ autocmd QuitPre * if empty(&bt) | lclose | endif " autoclose loclist window when
 " Map keys to navigate between lines with errors and warnings.
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
+let b:ale_warn_about_trailing_whitespace = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-terraform
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -72,3 +73,7 @@ let g:terraform_fmt_on_save = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" delete whitespace
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufWritePre * %s/\s\+$//e
