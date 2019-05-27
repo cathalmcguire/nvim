@@ -43,7 +43,7 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" setup fzf to use ag with an ignore file 
+" setup fzf to use ag with an ignore file
 let $FZF_DEFAULT_COMMAND = 'ag --path-to-ignore ~/.ignore -g ""'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ale
@@ -63,6 +63,13 @@ autocmd QuitPre * if empty(&bt) | lclose | endif " autoclose loclist window when
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
 let b:ale_warn_about_trailing_whitespace = 1
+
+let g:qfix_win = '0'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_jump = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-terraform
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
