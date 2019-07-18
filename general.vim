@@ -43,3 +43,5 @@ set splitright
 set autoread
 
 au BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars
+
+call clipper#set_invocation('nc localhost 8377')
